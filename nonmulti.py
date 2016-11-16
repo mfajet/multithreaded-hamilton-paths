@@ -1,5 +1,10 @@
 #Graphs will be stored as an adjacency list implemented as a dict that maps
 #vertices to the vertices their adjacent to
+# b----c
+# | \/ |
+# | /\ |
+# a    d
+
 graph = {
     'a': ['b','c'],
     'b': ['a','c','d'],

@@ -87,6 +87,10 @@ def find_paths_from_v(g, v):
         print v, count_dict[v]
     return paths
 
+def find_all_hamiltonian_paths(g):
+    all_paths = []
+    for v in g:
+        all_paths.append(find_paths_from_v(g, v))
+    return all_paths
 
-
-print find_paths_from_v(graph, 'a')
+print find_all_hamiltonian_paths(graph)

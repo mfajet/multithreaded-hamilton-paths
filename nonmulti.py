@@ -58,7 +58,6 @@ def find_paths_from_v(g, v):
     for w in g:
         count_dict[w] = 0
     while count_dict[v] < len(g[v]) or (v != start and count_dict[v] >= len(g[v])):
-        print v, count_dict, path
         if v != start and count_dict[v] >= len(g[v]):
             v = path.pop()
             count_dict[v]=0
@@ -73,7 +72,6 @@ def find_paths_from_v(g, v):
                 used[v] = 0
                 path.pop()
                 v = path[len(path)-1]
-                print str_path
 
             elif used[vertex] == 0:
                 used[vertex] = 1
@@ -83,8 +81,6 @@ def find_paths_from_v(g, v):
 
             else:
                 count_dict[v]+=1
-
-        print v, count_dict[v]
     return paths
 
 def find_all_hamiltonian_paths(g):

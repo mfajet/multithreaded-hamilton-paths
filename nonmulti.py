@@ -53,7 +53,7 @@ def find_h_path_to_v(g, v):
                 i+=1
 
 
-
+#Function to find all hamiltonian paths from a certain vertex, given the graph
 def find_paths_from_v(g, v):
     start = v
     n = len(g)
@@ -63,7 +63,7 @@ def find_paths_from_v(g, v):
     for vertex in g:
         used[vertex] = 0
     used[v] = 1
-    count_dict = {}
+    count_dict = {}#Keeps all the counters for vertices
     for w in g:
         count_dict[w] = 0
     while count_dict[v] < len(g[v]) or (v != start):

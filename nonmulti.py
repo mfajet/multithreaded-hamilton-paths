@@ -13,9 +13,9 @@ graph = {
 }
 
 #how to print all edges
-def print_edges:
-    for v in graph:
-        for w in graph[v]:
+def print_edges(g):
+    for v in g:
+        for w in g[v]:
             print "%s,%s" % (v,w)
 
 # It is able to find a hamilton path ending at a certain vertex.
@@ -51,6 +51,9 @@ def find_h_path_to_v(g, v):
                 i=0
             else:
                 i+=1
+
+
+
 def find_paths_from_v(g, v):
     start = v
     n = len(g)
@@ -63,7 +66,7 @@ def find_paths_from_v(g, v):
     count_dict = {}
     for w in g:
         count_dict[w] = 0
-    while count_dict[v] < len(g[v]) or (v != start and count_dict[v] >= len(g[v])):
+    while count_dict[v] < len(g[v]) or (v != start):
         if v != start and count_dict[v] >= len(g[v]):
             v = path.pop()
             count_dict[v]=0

@@ -13,9 +13,10 @@ graph = {
 }
 
 #how to print all edges
-# for v in graph:
-#     for w in graph[v]:
-#         print "%s,%s" % (v,w)
+def print_edges:
+    for v in graph:
+        for w in graph[v]:
+            print "%s,%s" % (v,w)
 
 # It is able to find a hamilton path ending at a certain vertex.
 # It hasn't been completely tested yet. It works with this specific graph example.

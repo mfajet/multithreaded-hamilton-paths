@@ -118,9 +118,3 @@ def find_paths_recursive(g,path):
             path = orig[:]
             path.append(w)
             find_paths_recursive(g, path)
-
-
-
-print find_paths_recursive(graph,[])
-print r_paths
-print find_all_hamiltonian_paths(graph)

@@ -102,6 +102,7 @@ r_paths = []
 #Recursive method of finding it. Might be easier to implement/convert to the threads
 #that create threads themeselves.
 def find_paths_recursive(g,path):
+    global r_paths
     orig = path
     if not path: #if list is empty
         for v in g:# Add all vertices as start of empty list

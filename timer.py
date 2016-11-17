@@ -12,9 +12,13 @@ graph = {
 start = time.time()
 nonmulti.find_paths_recursive(graph, [])
 end = time.time()
-print "one thread", (end - start)
+one = end - start
+print "one thread", one
 
 start = time.time()
 multi_r.find_paths_recursive(graph, [])
 end = time.time()
-print "multi thread", (end - start)
+mult = end - start
+print "multi thread", mult
+
+print mult < one

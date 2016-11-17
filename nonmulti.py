@@ -98,4 +98,29 @@ def find_all_hamiltonian_paths(g):
         all_paths.append(find_paths_from_v(g, v))
     return all_paths
 
+r_paths = []
+#Recursive method of finding it. Might be easier to implement/convert to the threads
+#that create threads themeselves.
+def find_paths_recursive(g,path):
+    orig = path
+    if not path:
+        for v in g:
+            path = orig[:]
+            path.append(v)
+            find_paths_recursive(g, path)
+    elif len(path) == len(g):
+        if len(path) == len(set(path)):
+            r_paths.append('-'.join(path))
+            return
+    else:
+        v = path[len(path)-1]
+        for w in g[v]:
+            path = orig[:]
+            path.append(w)
+            find_paths_recursive(g, path)
+
+
+
+print find_paths_recursive(graph,[])
+print r_paths
 print find_all_hamiltonian_paths(graph)

@@ -103,18 +103,18 @@ r_paths = []
 #that create threads themeselves.
 def find_paths_recursive(g,path):
     orig = path
-    if not path:
-        for v in g:
-            path = orig[:]
+    if not path: #if list is empty
+        for v in g:# Add all vertices as start of empty list
+            path = orig[:]#original by value not by reference
             path.append(v)
             find_paths_recursive(g, path)
-    elif len(path) == len(g):
-        if len(path) == len(set(path)):
-            r_paths.append('-'.join(path))
-            return
+    elif len(path) == len(g):#if length is the number of vertices
+        if len(path) == len(set(path)): # if it doesn't contain duplicates
+            r_paths.append('-'.join(path))#add it to the list of paths
+        return#STOP
     else:
-        v = path[len(path)-1]
-        for w in g[v]:
+        v = path[len(path)-1]#Get las vertex in path
+        for w in g[v]: #loop through vertices it's adjacent to and add them to paths
             path = orig[:]
             path.append(w)
             find_paths_recursive(g, path)

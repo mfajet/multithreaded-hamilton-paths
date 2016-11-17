@@ -41,9 +41,9 @@ class find_paths_recursive(threading.Thread):
                 thread.start()
                 threads.append(thread)
 
-
-thread = find_paths_recursive(graph,[])
-thread.start()
-threads.append(thread)
-for thread in threads:
-    thread.join()
+def find_rec_paths(g):
+    thread = find_paths_recursive(g,[])
+    thread.start()
+    threads.append(thread)
+    for thread in threads:
+        thread.join()

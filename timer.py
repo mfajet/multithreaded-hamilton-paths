@@ -4,13 +4,10 @@ import multi
 import time
 
 graph = {
-    'a': ['b','c','d','e','f', 'g'],
-    'b': ['a','c','d','e','f', 'g'],
-    'c': ['a','b','d','e','f', 'g'],
-    'd': ['a','b','c','e','f', 'g'],
-    'e': ['a','b','c','d','f','g'],
-    'f': ['a','b','c','d','e','g'],
-    'g': ['a','b','c','d','e','f']
+    'a': ['b','c'],
+    'b': ['a','c','d'],
+    'c': ['a','b','d'],
+    'd': ['b','c']
 }
 
 start = time.time()
@@ -29,14 +26,14 @@ print mult < one
 
 
 start = time.time()
-nonmulti.find_paths_recursive(graph, [])
+nonmulti.find_paths_recursive([])
 end = time.time()
 one = end - start
 print "one thread recursive", one
 print nonmulti.r_paths
 
 start = time.time()
-multi_r.find_rec_paths(graph)
+multi_r.find_paths_recursive([])
 end = time.time()
 mult = end - start
 print "multi thread recursive", mult

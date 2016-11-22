@@ -4,10 +4,11 @@ import multi
 import time
 
 graph = {
-    'a': ['b','c'],
-    'b': ['a','c','d'],
-    'c': ['a','b','d'],
-    'd': ['b','c']
+    'a': ['b','c','d','e'],
+    'b': ['a','c','d','e'],
+    'c': ['a','b','d','e'],
+    'd': ['b','c','a','e'],
+    'e': ['a', 'b', 'c', 'd']
 }
 
 start = time.time()

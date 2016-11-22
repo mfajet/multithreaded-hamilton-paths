@@ -1,10 +1,12 @@
 import threading
 graph = {
-    'a': ['b','c'],
-    'b': ['a','c','d'],
-    'c': ['a','b','d'],
-    'd': ['b','c']
+    'a': ['b','c','d','e'],
+    'b': ['a','c','d','e'],
+    'c': ['a','b','d','e'],
+    'd': ['b','c','a','e'],
+    'e': ['a', 'b', 'c', 'd']
 }
+
 
 r_paths = []
 threads = []
@@ -49,7 +51,6 @@ threads.append(thread)
 
 for thread in threads:
     thread.join()
-
 r_paths_2 = []
 threads_2 = []
 #Recursive method of finding it. Might be easier to implement/convert to the threads

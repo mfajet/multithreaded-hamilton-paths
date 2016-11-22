@@ -6,12 +6,12 @@
 # a    d
 
 graph = {
-    'a': ['b','c'],
-    'b': ['a','c','d'],
-    'c': ['a','b','d'],
-    'd': ['b','c']
+    'a': ['b','c','d','e'],
+    'b': ['a','c','d','e'],
+    'c': ['a','b','d','e'],
+    'd': ['b','c','a','e'],
+    'e': ['a', 'b', 'c', 'd']
 }
-
 #how to print all edges
 def print_edges(g):
     for v in g:

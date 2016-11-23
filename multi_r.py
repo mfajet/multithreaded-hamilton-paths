@@ -1,10 +1,12 @@
 import threading
 graph = {
-    'a': ['b','c','d','e'],
-    'b': ['a','c','d','e'],
-    'c': ['a','b','d','e'],
-    'd': ['b','c','a','e'],
-    'e': ['a', 'b', 'c', 'd']
+    'a': ['b','c','d','e','f','g'],
+    'b': ['a','c','d','e','f','g'],
+    'c': ['a','b','d','e','f','g'],
+    'd': ['b','c','a','e','f','g'],
+    'e': ['a', 'b', 'c', 'd','f','g'],
+    'f': ['a', 'b', 'c', 'd', 'e','g'],
+    'g': ['a', 'b', 'c', 'd', 'e', 'f']
 }
 
 
@@ -25,10 +27,13 @@ class find_paths_recursive(threading.Thread):
             for v in graph:# Add all vertices as start of empty list
                 self.path = orig[:]#original by value not by reference
                 self.path.append(v)
-
-                thread =  find_paths_recursive(self.path)
-                thread.start()
-                threads.append(thread)
+                try:
+                    thread =  find_paths_recursive(self.path)
+                    thread.start()
+                    threads.append(thread)
+                except:
+                    #do nothing
+                    pass
         elif len(self.path) == len(graph):#if length is the number of vertices
             if len(self.path) == len(set(self.path)): # if it doesn't contain duplicates
                 r_paths.append('-'.join(self.path))#add it to the list of paths
@@ -38,19 +43,22 @@ class find_paths_recursive(threading.Thread):
             for w in graph[v]: #loop through vertices it's adjacent to and add them to paths
                 self.path = orig[:]
                 self.path.append(w)
-                thread =  find_paths_recursive(self.path)
-                thread.start()
-                threads.append(thread)
+                try:
+                    thread =  find_paths_recursive(self.path)
+                    thread.start()
+                    threads.append(thread)
+                except:
+                    pass
 
-# def find_rec_paths(g):
-global graph
-#graph = g
-thread = find_paths_recursive([])
-thread.start()
-threads.append(thread)
-
-for thread in threads:
-    thread.join()
+# # def find_rec_paths(g):
+# global graph
+# #graph = g
+# thread = find_paths_recursive([])
+# thread.start()
+# threads.append(thread)
+#
+# for thread in threads:
+#     thread.join()
 r_paths_2 = []
 threads_2 = []
 #Recursive method of finding it. Might be easier to implement/convert to the threads

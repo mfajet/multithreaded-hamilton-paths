@@ -37,7 +37,7 @@ print "one thread recursive", one
 
 
 start = time.time()
-# multi_r.find_paths_recursive([])
+cProfile.run('multi_r.find_paths_recursive([])')
 end = time.time()
 mult = end - start
 print "multi thread recursive", mult

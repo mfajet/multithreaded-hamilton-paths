@@ -3,44 +3,54 @@ import multi_r
 import multi
 import time
 import cProfile
+import graphs
 
-graph = {
-    'a': ['b','c','d','e'],
-    'b': ['a','c','d','e'],
-    'c': ['a','b','d','e'],
-    'd': ['b','c','a','e'],
-    'e': ['a', 'b', 'c', 'd']
-}
-#
-# start = time.time()
-# nonmulti.find_all_hamiltonian_paths(graph)
-# end = time.time()
-# one = end - start
-# print "one thread non-recursive", one
-#
-# start = time.time()
-# multi.find_all_hamiltonian_paths(graph)
-# end = time.time()
-# mult = end - start
-# print "multi thread non-recursive", mult
-#
-# print mult < one
+graph = graphs.graph1
+# graph = {
+#     'a': ['b','c','d','e'],
+#     'b': ['a','c','d','e'],
+#     'c': ['a','b','d','e'],
+#     'd': ['b','c','a','e'],
+#     'e': ['a', 'b', 'c', 'd']
+# }
+
+print "*************************************************************"
 
 
 start = time.time()
-print "start", start
-cProfile.run('nonmulti.find_paths_recursive([])')
+res1 = nonmulti.find_all_hamiltonian_paths(graph)
 end = time.time()
-print "end", end
+one = end - start
+print "one thread non-recursive", one
+
+start = time.time()
+res2 = multi.find_all_hamiltonian_paths(graph)
+end = time.time()
+mult = end - start
+print "multi thread non-recursive", mult
+print "Same Results", sorted(res1) == sorted(res2)
+
+print "Threaded faster?", mult < one
+
+print """
+
+
+"""
+
+
+start = time.time()
+nonmulti.find_rec_paths(graph)
+end = time.time()
 one = end - start
 print "one thread recursive", one
 
 
 start = time.time()
-cProfile.run('multi_r.find_paths_recursive([])')
+multi_r.find_rec_paths(graph)
 end = time.time()
 mult = end - start
 print "multi thread recursive", mult
-#print sorted(multi_r.r_paths) == sorted(nonmulti.r_paths)
+print "Same Results", sorted(multi_r.r_paths) == sorted(nonmulti.r_paths)
 
-print mult < one
+print "Threaded faster?", mult < one
+print "*************************************************************"

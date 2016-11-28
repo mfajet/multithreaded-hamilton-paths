@@ -5,12 +5,7 @@
 # | /\ |
 # a    d
 
-graph = {
-    'a': ['b','c','d'],
-    'b': ['a','c','d'],
-    'c': ['a','b','d'],
-    'd': ['b','c','a']
-}
+graph = {}
 #how to print all edges
 def print_edges(g):
     for v in g:
@@ -118,3 +113,8 @@ def find_paths_recursive(path):
             path = orig[:]
             path.append(w)
             find_paths_recursive(path)
+
+def find_rec_paths(g):
+    global graph
+    graph = g
+    find_paths_recursive([])

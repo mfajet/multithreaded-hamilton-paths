@@ -5,7 +5,7 @@ import time
 import cProfile
 import graphs
 
-graph = graphs.graph1
+graph = graphs.graph3
 # graph = {
 #     'a': ['b','c','d','e'],
 #     'b': ['a','c','d','e'],
@@ -34,7 +34,6 @@ print "Threaded faster?", mult < one
 
 print """
 
-
 """
 
 
@@ -53,4 +52,6 @@ print "multi thread recursive", mult
 print "Same Results", sorted(multi_r.r_paths) == sorted(nonmulti.r_paths)
 
 print "Threaded faster?", mult < one
+print ""
+print "Paths:", multi_r.r_paths
 print "*************************************************************"

@@ -2,7 +2,6 @@ import nonmulti
 import multi_r
 import multi
 import time
-import cProfile
 import graphs
 
 graph = graphs.graph3

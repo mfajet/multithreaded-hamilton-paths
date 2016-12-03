@@ -15,6 +15,7 @@ r_paths = []
 #that create threads themeselves.
 jobs=[]
 def find_paths_recursive(path):
+    global jobs
     global r_paths
     orig = path
     if not path: #if list is empty
@@ -22,7 +23,7 @@ def find_paths_recursive(path):
             path = orig[:]#original by value not by reference
             path.append(v)
 
-            proc = multiprocessing.Process(target = find_paths_recursive, args = ([],))
+            proc = multiprocessing.Process(target = find_paths_recursive, args = (path,))
             jobs.append(proc)
             proc.start()
     elif len(path) == len(graph):#if length is the number of vertices
@@ -34,7 +35,17 @@ def find_paths_recursive(path):
         for w in graph[v]: #loop through vertices it's adjacent to and add them to paths
             path = orig[:]
             path.append(w)
-            proc = multiprocessing.Process(target = find_paths_recursive, args = ([],))
+            proc = multiprocessing.Process(target = find_paths_recursive, args = (path,))
             jobs.append(proc)
             proc.start()
     return
+
+
+
+proc = multiprocessing.Process(target = find_paths_recursive, args = ([],))
+jobs.append(proc)
+proc.start()
+for job in jobs:
+    job.join()
+    print "job finished", job
+print r_paths

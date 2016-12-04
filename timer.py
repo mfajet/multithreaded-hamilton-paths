@@ -5,7 +5,7 @@ import time
 import cProfile
 import graphs
 
-graph = graphs.graph3
+graph = graphs.graph5
 # graph = {
 #     'a': ['b','c','d','e'],
 #     'b': ['a','c','d','e'],

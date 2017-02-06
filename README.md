@@ -6,3 +6,6 @@ I wrote two different algorithms and parallelized both of them.
 The multithreaded versions of the algorithms were not faster. I believe this is because of Python's GIL and the significant overhead of threads.
 
 The recursive multithreaded algorithm is also significantly limited by the number of threads that it can produce.
+
+
+The project is now being implemented in Java in hope that Java threading will be able to produce positive results.

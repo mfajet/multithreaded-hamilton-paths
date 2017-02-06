@@ -4,7 +4,7 @@ import multi
 import time
 import graphs
 
-graph = graphs.graph3
+graph = graphs.graph4
 # graph = {
 #     'a': ['b','c','d','e'],
 #     'b': ['a','c','d','e'],

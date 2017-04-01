@@ -6,6 +6,7 @@
 # a    d
 
 graph = {}
+
 #how to print all edges
 def print_edges(g):
     for v in g:

@@ -1,8 +1,5 @@
 import multiprocessing
 
-#DO NOT RUN THIS FILE. I WAS EXPERIMENTING. THIS FILE WILL CRASH YOUR COMPUTER
-# BECAUSE I DIDN'T HAVE A GOOD UNDERSTANDING OF multiprocessing
-
 graph = {
     'a': ['b','c','d'],
     'b': ['a','c','d'],

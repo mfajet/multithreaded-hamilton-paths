@@ -1,4 +1,5 @@
 import threading
+
 graph = {
     'a': ['b','c','d','e','f','g'],
     'b': ['a','c','d','e','f','g'],

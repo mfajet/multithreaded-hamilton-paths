@@ -5,6 +5,7 @@ global r_paths
 
 r_paths = []
 threads = []
+
 #Recursive method of finding it. Might be easier to implement/convert to the threads
 #that create threads themeselves.
 class find_paths_recursive(threading.Thread):
